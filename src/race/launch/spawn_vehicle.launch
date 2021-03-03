@@ -24,6 +24,10 @@
   <node pkg="race" type="carla_manual_control.py" name="carla_manual_control_$(arg role_name)" output="screen">
     <param name="role_name" value="$(arg role_name)"/>
   </node>
+  
+  <node pkg="race" type="baseline.py" name="baseline_$(arg role_name)" output="screen">
+    <param name="role_name" value="$(arg role_name)"/>
+  </node>
 
   <node pkg="race" type="video_output.py" name="video_output_$(arg role_name)" output="screen">
     <param name="role_name" value="$(arg role_name)"/>
