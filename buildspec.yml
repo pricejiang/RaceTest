@@ -13,24 +13,29 @@ phases:
   pre_build:
     commands:
       - echo compile
-      # - cd /
-      # - ls
-      # - cd /home 
-      # - ls
-      # - cd /opt
-      # - cp -R ./src /home/carla/graic-graic-workspace/
+      - cp -R ./src /home/carla/graic-workspace/src
+      # - cd /home/carla/graic-workspace/
       # - source /opt/ros/noetic/setup.bash
-      # - cd /home/carla/graic-graic-workspace/
-      # - catkin_make
-      - nvidia-smi
-      - ls
+      - cd /home/carla/carla-simulator/CarlaUE4/Content/
+      - wget https://github.com/PoPGRI/Race/releases/download/0.1.0/map_package_0.1.0.zip 
+      - cd /home/carla/carla-simulator/
+      - echo "SDL_VIDEODRIVER=offscreen ./CarlaUE4.sh -opengl" > runCarla.sh
+      - chmod +x runCarla.sh
+      - nohup ./runCarla.sh & echo $! > pidfile
       - cd /home/carla
-      - ls
-      - pwd
-      
+      - source .bashrc
+      - cd /home/carla/graic-workspace/
+      - catkin_make
+    
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
+      - source devel/setup.bash
+      - nohup roslaunch race carla_single.launch & echo $! > pidfile
+      - sleep 30 && echo "time to shutdown"
+      - pkill ros
+      - pkill Carla
+      - cat /home/carla/graic-workspace/src/race_util_module/evaluation_node
 
 
