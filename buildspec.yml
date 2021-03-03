@@ -26,6 +26,7 @@ phases:
       - ls
       - cd /home/carla
       - ls
+      - pwd
       
   build:
     commands:
