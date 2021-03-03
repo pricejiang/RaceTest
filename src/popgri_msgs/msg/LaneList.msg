@@ -1,1 +1,0 @@
-LaneInfo[] lane_waypoints
