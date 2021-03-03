@@ -10,12 +10,13 @@ phases:
   pre_build:
     commands:
       - echo compile
-      - cd /
-      - ls
-      - cd /home 
-      - ls
-      - cd /opt
-      - ls
+      # - cd /
+      # - ls
+      # - cd /home 
+      # - ls
+      # - cd /opt
+      - source /opt/ros/noetic/setup.bash
+      - catkin_make
       
   build:
     commands:
