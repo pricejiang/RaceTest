@@ -18,8 +18,11 @@ phases:
       # - cd /home 
       # - ls
       # - cd /opt
+      - cp -R ./src /home/carla/graic-graic-workspace/
       - source /opt/ros/noetic/setup.bash
+      - cd /home/carla/graic-graic-workspace/
       - catkin_make
+      - nvidia-smi
       - ls
       - cd /home/carla
       - ls
