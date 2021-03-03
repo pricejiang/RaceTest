@@ -1,5 +1,8 @@
 version: 0.2
 
+env:
+  shell: bash
+
 phases:
   install:
     runtime-versions:
@@ -15,7 +18,7 @@ phases:
       # - cd /home 
       # - ls
       # - cd /opt
-      - . /opt/ros/noetic/setup.bash
+      - source /opt/ros/noetic/setup.bash
       - catkin_make
       
   build:
