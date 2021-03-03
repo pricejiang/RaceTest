@@ -15,7 +15,7 @@ phases:
       # - cd /home 
       # - ls
       # - cd /opt
-      - source /opt/ros/noetic/setup.bash
+      - . /opt/ros/noetic/setup.bash
       - catkin_make
       
   build:
