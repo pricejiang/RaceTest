@@ -10,13 +10,12 @@ phases:
   pre_build:
     commands:
       - echo compile
+      - cd /
       - ls
-      - pwd
-      - catkin_make
+      
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - ls
-      - pwd
+
 
