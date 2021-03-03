@@ -20,6 +20,9 @@ phases:
       # - cd /opt
       - source /opt/ros/noetic/setup.bash
       - catkin_make
+      - ls
+      - cd /home/carla
+      - ls
       
   build:
     commands:
