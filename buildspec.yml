@@ -12,6 +12,10 @@ phases:
       - echo compile
       - cd /
       - ls
+      - cd /home 
+      - ls
+      - cd /opt
+      - ls
       
   build:
     commands:
