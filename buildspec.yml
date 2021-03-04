@@ -28,6 +28,8 @@ phases:
       - cd /home/carla/graic-workspace/
       - source /opt/ros/noetic/setup.bash
       - catkin_make
+      # - source /home/carla/carla-ros-bridge/catkin_ws/devel/setup.bash
+      - export PYTHONPATH=$PYTHONPATH:/home/carla/carla-simulator/PythonAPI/carla/dist/carla-0.9.11-py3.7-linux-x86_64.egg
       - source /home/carla/carla-ros-bridge/catkin_ws/devel/setup.bash
       - source devel/setup.bash --extend
 
