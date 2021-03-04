@@ -9,6 +9,8 @@ phases:
        python: 3.8
     commands: 
       - echo set python runtime version 3.8
+      - pip install pygame
+      - pip install simple-pid
 
   pre_build:
     commands:
@@ -38,9 +40,8 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      # - source devel/setup.bash
       - nohup roslaunch race carla_single.launch & echo $! > pidfile
-      - sleep 30 && echo "time to shutdown"
+      - sleep 120 && echo "time to shutdown"
       - pkill ros
       - pkill Carla
       - cat /home/carla/graic-workspace/src/race_util_module/evaluation_node
