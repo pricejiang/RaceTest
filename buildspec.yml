@@ -23,15 +23,20 @@ phases:
       - chmod +x runCarla.sh
       - nohup ./runCarla.sh & echo $! > pidfile
       - cd /home/carla
-      - source .bashrc
+      # - source .bashrc
+      - cat .bashrc
       - cd /home/carla/graic-workspace/
+      - source /opt/ros/noetic/setup.bash
       - catkin_make
+      - source /home/carla/carla-ros-bridge/catkin_ws/devel/setup.bash
+      - source devel/setup.bash --extend
+
     
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - source devel/setup.bash
+      # - source devel/setup.bash
       - nohup roslaunch race carla_single.launch & echo $! > pidfile
       - sleep 30 && echo "time to shutdown"
       - pkill ros
