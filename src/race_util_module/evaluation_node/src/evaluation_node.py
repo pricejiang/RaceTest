@@ -76,7 +76,7 @@ class EvaluationNode:
 
     def waypointCallback(self, data):
         self.waypoint = data.location
-        self.reachEnd = data.isFinal
+        self.reachEnd = data.reachedFinal
 
     def laneCallback(self, data):
         if self.reachEnd:
@@ -108,7 +108,7 @@ class EvaluationNode:
         if distanceToX < 8 and distanceToY < 8 and not (waypoint.x, waypoint.y) in self.reachedPoints: 
             # Reach information
             reached = String()
-            reachInfo = "({:.2f}, {:.2f}) at time {}".format(waypoint.x, waypoint.y, str(datetime.timedelta(
+            reachInfo = "{} reached ({:.2f}, {:.2f}) at time {}".format(self.role_name, waypoint.x, waypoint.y, str(datetime.timedelta(
                 seconds=int(rospy.get_rostime().to_sec()))))
             reached.data = reachInfo
             self.pubReach.publish(reached)

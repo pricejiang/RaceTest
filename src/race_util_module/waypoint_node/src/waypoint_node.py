@@ -45,8 +45,9 @@ def run(wn, role_name):
     while not rospy.is_shutdown():
         waypoint = wn.getWaypoint()
         pub_waypoint = WaypointInfo()
+        pub_waypoint.role_name = role_name
         if not waypoint:
-            pub_waypoint.isFinal = True
+            pub_waypoint.reachedFinal = True
         else:
             pub_waypoint.location.x = waypoint[0]
             pub_waypoint.location.y = waypoint[1]

@@ -37,9 +37,8 @@ class VehicleDecision():
             self.target_y = self.lane_marker.y
     
     def waypointCallback(self, data):
-        self.reachEnd = data.isFinal
+        self.reachEnd = data.reachedFinal
 
-        
     def get_ref_state(self, currState, obstacleList):
         """
             Get the reference state for the vehicle according to the current state and result from perception module

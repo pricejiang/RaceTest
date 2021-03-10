@@ -29,7 +29,7 @@
     <arg name='fixed_delta_seconds' value='$(arg fixed_delta_seconds)'/>
   </include>
 
-  <node pkg="race" type="run.py" name="race_run" output="screen">
+  <node pkg="race" type="run.py" name="command_node" output="screen">
     <param name="N" value="$(arg N)" />
     <param name="log" value="$(arg log)" />
     <param name="track" value="$(arg track)" />
