@@ -21,9 +21,9 @@
   <!-- <include file="$(find carla_manual_control)/launch/carla_manual_control.launch">
     <arg name='role_name' value='$(arg role_name)'/>
   </include> -->
-  <node pkg="race" type="carla_manual_control.py" name="carla_manual_control_$(arg role_name)" output="screen">
+  <!-- <node pkg="race" type="carla_manual_control.py" name="carla_manual_control_$(arg role_name)" output="screen">
     <param name="role_name" value="$(arg role_name)"/>
-  </node>
+  </node> -->
 
   <node pkg="race" type="video_output.py" name="video_output_$(arg role_name)" output="screen">
     <param name="role_name" value="$(arg role_name)"/>
