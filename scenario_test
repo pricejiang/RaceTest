@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    options {
+      timeout(time: 11, unit: 'MINUTES') 
+    }
+    stages {
+        stage('Start Carla') {
+            steps {
+                script {
+                    sh 'docker exec graic_test pkill Carla & echo "Clean for Start"'
+                    sh 'docker exec graic_test pkill ros & echo "Clean for Start"'
+                    sh 'docker exec graic_test ./runCarla.sh & echo "Start Carla"'
+                    sh 'docker exec graic_test sleep 5'
+                }
+            }
+        }
+        stage('Start Race') {
+            steps {
+                script {
+                    sh 'echo "Start Race"'
+                    sh 'docker exec graic_test ./launch.sh'
+                }
+            }
+        }
+        stage('End Carla and ROS'){
+            steps {
+                script {
+                    sh 'docker exec graic_test pkill python3 & echo "End ROS"'
+                    sh 'docker exec graic_test pkill ros & echo "End ROS"'
+                    sh 'docker exec graic_test pkill Carla & echo "End Carla"'
+                }
+            }
+        }
+    }
+}
